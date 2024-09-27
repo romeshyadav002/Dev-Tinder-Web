@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { BASE_URl } from '../utils/constants';
+import { BASE_URL } from '../utils/constants';
 import { removeUser } from '../utils/userSlice';
 
 const NavBar = () => {
@@ -11,7 +11,7 @@ const NavBar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post(BASE_URl + '/logout', {}, { withCredentials: true });
+      await axios.post(BASE_URL + '/logout', {}, { withCredentials: true });
       dispatch(removeUser());
       return navigate('/login');
     } catch (err) {
@@ -36,7 +36,13 @@ const NavBar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img alt="user photo" src={user.photoUrl} />
+                <img
+                  alt="user photo"
+                  src={
+                    user?.photoUrl ||
+                    'https://lh3.googleusercontent.com/ogw/AF2bZyhVBgWlYYiTm4y4bqTM9PYnVxAjGY7rDABkb8kPn6oYIVwn=s64-c-mo'
+                  }
+                />
               </div>
             </div>
             <ul
