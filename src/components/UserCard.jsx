@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { BASE_URL } from '../utils/constants';
 import { useDispatch } from 'react-redux';
-// import { removeUserFromFeed } from '../utils/feedSlice';
+import { removeUserFromFeed } from '../utils/feedSlice';
 
 const UserCard = ({ user }) => {
   const { _id, firstName, lastName, photoUrl, age, gender, about } = user;
@@ -14,7 +14,7 @@ const UserCard = ({ user }) => {
         {},
         { withCredentials: true },
       );
-      //   dispatch(removeUserFromFeed(userId));
+      dispatch(removeUserFromFeed(userId));
     } catch (err) {}
   };
 
@@ -24,9 +24,10 @@ const UserCard = ({ user }) => {
         <img
           src={
             user?.photoUrl ||
-            'https://lh3.googleusercontent.com/ogw/AF2bZyhVBgWlYYiTm4y4bqTM9PYnVxAjGY7rDABkb8kPn6oYIVwn=s64-c-mo'
+            'https://img.mensxp.com/media/content/2021/Jun/Amrish-Puri-Roles-Where-He-Wasnt-The-Bad-Guy1400_60d1cf7d7d477.jpeg'
           }
           alt="photo"
+          className="w-full h-48"
         />
       </figure>
       <div className="card-body">

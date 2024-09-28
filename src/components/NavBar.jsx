@@ -36,13 +36,7 @@ const NavBar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
-                  alt="user photo"
-                  src={
-                    user?.photoUrl ||
-                    'https://lh3.googleusercontent.com/ogw/AF2bZyhVBgWlYYiTm4y4bqTM9PYnVxAjGY7rDABkb8kPn6oYIVwn=s64-c-mo'
-                  }
-                />
+                <img alt="user photo" src={user.photoUrl} />
               </div>
             </div>
             <ul
